@@ -1,105 +1,43 @@
 import React from "react";
+import { withPhenomicApi, query, BodyRenderer, Link } from "@phenomic/preset-react-app/lib/client";
 import Layout from "./layout"
 
-const News = () => (
-    <Layout layout="subpage">
+const News = (props) => (
+    <Layout title={(props.content.node && props.content.node.title)} layout={(props.content.node && props.content.node.layout)}>
         <section className="wrapper">
             <div className="inner">
                 <header className="align-center">
-					<h2>Sage News</h2>
-					<p>What we have done and what we think</p>
+					<h2>{(props.content.node && props.content.node.title)}</h2>
+					<p>{(props.content.node && props.content.node.subtitle)}</p>
 				</header>
                 <h2>News Articles</h2>
                 <hr/>
                 <div className="row">
-                    <div className="4u 12u$(medium)">
-                        <h4>News 1</h4>
-                        <div className="box">
-                            <span className="image left"><img src="images/services.jpg" alt=""></img></span>
-                            <p>
-                            Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu 
-                            felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque 
-                            praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum 
-                            primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus 
-                            vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan 
-                            eu faucibus lorem ipsum dolor sit amet nullam.</p>
-                            <a href="#" className="button">Read More</a>
+                    {props.news.node && props.news.node.list.map(news => (
+                        <div key={news.id} className="col-sm">
+                            <h4>{news.title}</h4>
+                            <div className="box">
+                                <p> 
+                                    <span className="image left"><img src={news.image} alt={news.title}></img></span>
+                                    {news.intro} 
+                                </p>
+                                <Link to={"/news/" + news.id}className="button">Read More</Link>
+                            </div>
                         </div>
-                    </div>
-                    <div className="4u 12u$(medium)">
-                        <h4>News 2</h4>
-                        <div className="box">
-                            <span className="image left"><img src="images/services.jpg" alt=""></img></span>
-                            <p>
-                            Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu 
-                            felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque 
-                            praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum 
-                            primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus 
-                            vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan 
-                            eu faucibus lorem ipsum dolor sit amet nullam.</p>
-                            <a href="#" className="button">Read More</a>
-                        </div>
-                    </div>
-                    <div className="4u 12u$(medium)">
-                        <h4>News 3</h4>
-                        <div className="box">
-                            <span className="image left"><img src="images/services.jpg" alt=""></img></span>
-                            <p>
-                            Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu 
-                            felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque 
-                            praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum 
-                            primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus 
-                            vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan 
-                            eu faucibus lorem ipsum dolor sit amet nullam.</p>
-                            <a href="#" className="button">Read More</a>
-                        </div>
-                    </div>
-                    <div className="4u 12u$(medium)">
-                        <h4>News 4</h4>
-                        <div className="box">
-                            <span className="image left"><img src="images/services.jpg" alt=""></img></span>
-                            <p>
-                            Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu 
-                            felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque 
-                            praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum 
-                            primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus 
-                            vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan 
-                            eu faucibus lorem ipsum dolor sit amet nullam.</p>
-                            <a href="#" className="button">Read More</a>
-                        </div>
-                    </div>
-                    <div className="4u 12u$(medium)">
-                        <h4>News 5</h4>
-                        <div className="box">
-                            <span className="image left"><img src="images/services.jpg" alt=""></img></span>
-                            <p>
-                            Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu 
-                            felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque 
-                            praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum 
-                            primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus 
-                            vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan 
-                            eu faucibus lorem ipsum dolor sit amet nullam.</p>
-                            <a href="#" className="button">Read More</a>
-                        </div>
-                    </div>
-                    <div className="4u 12u$(medium)">
-                        <h4>News 6</h4>
-                        <div className="box">
-                            <span className="image left"><img src="images/services.jpg" alt=""></img></span>
-                            <p>
-                            Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu 
-                            felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque 
-                            praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum 
-                            primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus 
-                            vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan 
-                            eu faucibus lorem ipsum dolor sit amet nullam.</p>
-                            <a href="#" className="button">Read More</a>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>
     </Layout>
 )
 
-export default News;
+export default withPhenomicApi(News, props => ({
+    news: query({
+      path: "news",
+      after: props.params.after
+    }), 
+    content: query({
+        path: "site",
+        id: "news"
+    })
+  }));

@@ -1,14 +1,16 @@
 import React from "react";
+import { withPhenomicApi, query, BodyRenderer, Link } from "@phenomic/preset-react-app/lib/client";
 import Layout from "./layout"
 
-const Services = () => (
-    <Layout layout="subpage" >
+const Services = (props) => (
+<Layout title={(props.content.node && props.content.node.title)} layout={(props.content.node && props.content.node.layout)}>
         <section className="wrapper">
             <div className="inner">
                 <header className="align-center">
-					<h2>Sage Services</h2>
-					<p>What we do and why we do it</p>
+                    <h2>{(props.content.node && props.content.node.title)}</h2>
+					<p>{(props.content.node && props.content.node.subtitle)}</p>
 				</header>
+                {props.content.node && <BodyRenderer>{props.content.node.body}</BodyRenderer>}
                 <h2>Our Values</h2>
                 <p>
                     ringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis 
@@ -29,15 +31,15 @@ const Services = () => (
                 <h2>Our Services</h2>
 
                 <div className="row">
-                    <div class="4u 12u$(medium)">
+                    <div className="col-sm">
                         <h3>Project Management</h3>
                          <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
                     </div>
-                    <div class="4u 12u$(medium)">
+                    <div className="col-sm">
                         <h3>Consultancy</h3>
                         <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
                     </div>
-                    <div class="4u 12u$(medium)">
+                    <div className="col-sm">
                         <h3>Assurance</h3>
                         <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
                     </div>
@@ -47,4 +49,9 @@ const Services = () => (
     </Layout>
 )
 
-export default Services;
+export default withPhenomicApi(Services, props => ({
+    content: query({
+        path: "site",
+        id: "services"
+    })
+  }));

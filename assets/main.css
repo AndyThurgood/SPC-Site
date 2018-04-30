@@ -2700,9 +2700,13 @@
 		.subpage #header {
 			background: #70a197;
 			top: 0;
-			height: 100px;
+			height: 8em;
 			line-height: 44px;
 			position: fixed;
+		}
+
+		.subpage #header .inner{
+			margin: 2em auto
 		}
 
 	#header {
@@ -2738,7 +2742,7 @@
 		}
 
 		#header .logo img {
-			max-width: 100px;
+			max-width: 60px;
 			vertical-align:middle
 		}
 
@@ -2801,12 +2805,27 @@
 			top: 1em;
 		}
 
+		.subpage #header{
+			height: 5em;
+		}
+
+		.subpage #header .inner{
+			margin: 1em auto
+		}
 	}
 
 	@media screen and (max-width: 736px) {
 
 		#header {
 			top: .5em;
+		}
+
+		.subpage #header{
+			height: 5em;
+		}
+
+		.subpage #header .inner{
+			margin: .5em auto
 		}
 
 	}
@@ -2820,6 +2839,65 @@
 	}
 
 /* Nav */
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+	position: absolute;
+	width: 36px;
+	height: 30px;
+	right: 8%;
+	top: 8%;
+	z-index: 1000100000 !important;
+  }
+
+  .subpage .bm-burger-button{
+	  position: fixed;
+  }
+  
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+	background: #ffffff;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+	height: 24px;
+	width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+	background: #ffffff;
+  }
+
+  .bm-menu-wrap{
+	z-index: 1000100001 !important;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+	background: #70a197;;
+	padding: 2.5em 1.5em 0;
+	font-size: 1.15em;
+	text-align: right
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+	fill: #ffffff;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list a {
+	color: #ffffff;
+	padding: 0.8em;
+	text-decoration: none;
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+	background: rgba(0, 0, 0, 0.3);
+  }
 
 	@media screen and (max-width: 980px) {
 
@@ -3077,12 +3155,16 @@
 					padding: 0 1.5em;
 				}
 
+				.bm-burger-button {
+					top: 5%
+				}
+
 		}
 
 		@media screen and (max-width: 736px) {
 
 			#banner {
-				padding: 4em 0 3em 0;
+				padding: 5em 0 3em 0;
 			}
 
 				#banner .inner {
@@ -3110,6 +3192,10 @@
 						padding: 0;
 						border: none;
 						margin-bottom: 1em;
+					}
+
+					.bm-burger-button {
+						top: 4%
 					}
 
 		}
