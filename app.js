@@ -11,10 +11,10 @@ import News from "./components/news";
 import NewsItem from "./components/newsitem";
 
 export default createApp(() => (
-  <Router history={browserHistory}>
-    <Route path="/" component={Home} />
-    <Route path="/services" component={Services} />
-    <Route path="/news" component={News} />
-    <Route path="/news/*" component={NewsItem} />
-  </Router>
+    <Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>
+      <Route path="/" component={Home} />
+      <Route path="/services" component={Services} />
+      <Route path="/news" component={News} />
+      <Route path="/news/*" component={NewsItem} />
+    </Router>
 ));

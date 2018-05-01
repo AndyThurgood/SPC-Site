@@ -29,7 +29,7 @@ const Banner = (props) =>(
         </div>
 
         <footer>
-            <Link to="#footer" className="button">Contact</Link>
+            <a href="#footer" className="button">Contact</a>
         </footer>
     </div>
 </section>

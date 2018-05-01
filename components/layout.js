@@ -1,17 +1,19 @@
 import React from "react";
 import Head from "react-helmet";
-import { slide as Menu } from 'react-burger-menu'
+import { slide as Menu } from "react-burger-menu"
 import { Link } from "@phenomic/preset-react-app/lib/client";
+import ContactForm from "./contactform"
 
 
 const SideMenu = () => (
     <Menu right pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" }>
+        <Link to="/">Home</Link>
         <Link to="/services">Services</Link>
         <Link to="/news">News</Link>
     </Menu>
 );
 
-const Layout = ({layout,  title, children }) => (
+const Layout = ({layout, title, children }) => (
     <div id="outer-container" className={layout}>
         <SideMenu/>
         <Head>
@@ -40,25 +42,9 @@ const Layout = ({layout,  title, children }) => (
         <footer id="footer">
             <div className="inner">
                 <h3>Get in touch</h3>
-                <form action="#" method="post">
-                    <div className="field half first">
-                        <label htmlFor="name">Name</label>
-                        <input name="name" id="name" type="text" placeholder="Name"></input>
-                    </div>
-                    <div className="field half">
-                        <label htmlFor="email">Email</label>
-                        <input name="email" id="email" type="email" placeholder="Email"></input>
-                    </div>
-                    <div className="field">
-                        <label htmlFor="message">Message</label>
-                        <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
-                    </div>
-                    <ul className="actions">
-                        <li><input value="Send Message" className="button alt" type="submit"></input></li>
-                    </ul>
-                </form>
+                <ContactForm />
                 <div className="copyright">
-                    &copy; Sage Project Consulting. Design: <Link to="https://templated.co">TEMPLATED</Link>. Images: <Link to="https://unsplash.com">Unsplash</Link>.
+                    &copy; Sage Project Consulting. Images: <Link to="https://unsplash.com">Unsplash</Link>.
                 </div>
             </div>
         </footer>

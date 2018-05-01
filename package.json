@@ -4,6 +4,7 @@
     "@phenomic/cli": "^1.0.0-beta.2",
     "@phenomic/core": "^1.0.0-beta.2",
     "@phenomic/preset-react-app": "^1.0.0-beta.2",
+    "axios": "^0.18.0",
     "bootstrap-css-only": "^4.1.0",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
