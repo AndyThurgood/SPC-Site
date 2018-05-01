@@ -10,11 +10,11 @@ class ContactForm extends React.Component {
       this.state = {
           name: "", 
           email: "", 
-          message: ""
+          message: "",
+          feedback: ""
         };
-  
       this.handleChange = this.handleChange.bind(this);
-      this.sendEmail = this.sendEmail.bind(this);
+      this.postForm = this.postForm.bind(this);
     }
   
     handleChange(event) {
@@ -27,6 +27,7 @@ class ContactForm extends React.Component {
       console.log(this.state)
       event.preventDefault();
       //this.sendEmail(this.state);
+      this.clearForm("Contact request submitted :)");
     }
 
     sendEmail(data){
@@ -38,16 +39,16 @@ class ContactForm extends React.Component {
         })
       .then(function (response) {
         console.log(response);
-        this.clearForm();
+        this.clearForm("Contact request submitted :)");
       })
       .catch(function (error) {
         console.log(error);
-        this.clearForm();
+        this.clearForm("Contact request failed :(");
       });
     }
 
-    clearForm(){
-        this.setState({name: "", email: "", message: ""});
+    clearForm(message){
+        this.setState({name: "", email: "", message: "", feedback: message});
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -72,7 +73,9 @@ class ContactForm extends React.Component {
         <ul className="actions">
             <li><input type="submit" value="Send Message" className="button alt" disabled={!this.state.formIsValid} ></input></li>
         </ul>
+          <h3>{this.state.feedback}</h3>
     </form>
+    
       );
     }
   }
