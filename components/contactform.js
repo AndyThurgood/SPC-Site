@@ -38,7 +38,8 @@ class ContactForm extends React.Component {
     }
 
     sendEmail(data){
-      axios.post(apiUri, data, 
+      let apiendpoint = apiUri + "/email";
+      axios.post(apiendpoint, data, 
         {
           headers: { 
             "Content-Type": "application/json", 
