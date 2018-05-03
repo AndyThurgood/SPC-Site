@@ -1929,6 +1929,10 @@
 		margin: 0 0 2em 0;
 	}
 
+	form #confirm-email{
+		display: none
+	}
+
 		form .field {
 			margin-bottom: 1.5em;
 		}

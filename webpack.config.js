@@ -2,7 +2,7 @@ import path from "path";
 import webpack from "webpack";
 import ExtractTextPlugin from "extract-text-webpack-plugin";
 
-module.exports = (/* config: PhenomicConfig */) => ({
+module.exports = () => ({
   entry: {
     "phenomic.main": [
       process.env.PHENOMIC_ENV !== "static" && require.resolve("webpack-hot-middleware/client"),
@@ -45,14 +45,14 @@ module.exports = (/* config: PhenomicConfig */) => ({
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'API_URL': JSON.stringify(process.env.CONTACT_API_URI) || null,
+      'API_KEY': JSON.stringify(process.env.CONTACT_API_KEY) || null,
+    }),
     new ExtractTextPlugin(
       {
       filename: "styles.css",
       disable: process.env.PHENOMIC_ENV !== "static"
-      }),
-      new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery'
       }),
       process.env.PHENOMIC_ENV !== "static" && new webpack.HotModuleReplacementPlugin(),
       process.env.NODE_ENV === "production" && new webpack.optimize.UglifyJsPlugin()
