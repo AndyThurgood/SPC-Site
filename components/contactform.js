@@ -42,15 +42,13 @@ class ContactForm extends React.Component {
         {
           headers: { 
             "Content-Type": "application/json", 
-            Authorization: "Bearer " + apiKey }
+            "x-api-key": apiKey }
         })
       .then(function (response) {
         console.log(response);
-        this.clearForm("Contact request submitted :)");
       })
       .catch(function (error) {
         console.log(error);
-        this.clearForm("Contact request failed :(");
       });
     }
 
