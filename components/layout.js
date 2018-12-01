@@ -18,6 +18,7 @@ const Layout = ({layout, title, children }) => (
         <SideMenu/>
         <Head>
             <meta charset="utf-8" />
+            <meta name="google-site-verification" content="GKNPPjj8-mT3jWbSE8oybcPwCRvlFhxUrlQjqPJDKZM" />
             <meta name="description" content="Project management Consultancy that provide agile, prince2 and APM resources." />
             <meta name="keywords" content="Project management, agile, architecture, consultancy, design, development" />
             <meta name="author" content="Sage Project Consulting Limited" />
