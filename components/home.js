@@ -77,7 +77,7 @@ const Home = (props) => (
 
 export default withPhenomicApi(Home, props => ({
     content: query({
-      path: "site",
+      path: "content/site",
       id: "home"
     })
 }));

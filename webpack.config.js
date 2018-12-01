@@ -54,8 +54,7 @@ module.exports = () => ({
       filename: "styles.css",
       disable: process.env.PHENOMIC_ENV !== "static"
       }),
-      process.env.PHENOMIC_ENV !== "static" && new webpack.HotModuleReplacementPlugin(),
-      process.env.NODE_ENV === "production" && new webpack.optimize.UglifyJsPlugin()
+      process.env.PHENOMIC_ENV !== "static" && new webpack.HotModuleReplacementPlugin()
   ].filter(item => item),
 
   resolve: {

@@ -37,7 +37,7 @@ export default withPhenomicApi(News, props => ({
       after: props.params.after
     }), 
     content: query({
-        path: "site",
+        path: "content/site",
         id: "news"
     })
   }));
